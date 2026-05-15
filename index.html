@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三潭國小 資訊教育</title>
+    <!-- 使用 Google Fonts 提升質感 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a73e8;
+            --hover-color: #1557b0;
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --secondary-text: #666666;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 450px;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .date-box {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            margin-bottom: 40px;
+            background: #f8f9fa;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .menu-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .btn {
+            display: block;
+            text-decoration: none;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(26, 115, 232, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(26, 115, 232, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* RWD 手機版調整 */
+        @media (max-width: 480px) {
+            h1 { font-size: 1.8rem; }
+            .btn { font-size: 1.15rem; padding: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>三潭國小 資訊教育</h1>
+        
+        <div class="date-box">
+            今日日期：<span id="current-date"></span>
+        </div>
+
+        <div class="menu-stack">
+            <!-- 請在下方 href="" 中填入你的實際連結 -->
+            <a href="這裡放課程內容的網址" class="btn">📘 課程內容</a>
+            <a href="這裡放前測問卷的網址" class="btn">📝 課前問卷</a>
+            <a href="這裡放後測問卷的網址" class="btn">📊 課後問卷</a>
+        </div>
+    </div>
+
+    <script>
+        // 自動取得並格式化今日日期[cite: 1]
+        function updateDate() {
+            const now = new Date();
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                weekday: 'long' 
+            };
+            document.getElementById('current-date').textContent = now.toLocaleDateString('zh-TW', options);
+        }
+        updateDate();
+    </script>
+
+</body>
+</html>
